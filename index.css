@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("https://images.pexels.com/photos/1655166/pexels-photo-1655166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+    no-repeat center center;
+  background-size: cover;
+  display: flex;
+  font-family: sans-serif, monospace;
+  min-height: 100vh;
+  justify-content: center;
+  color: white;
+}
+
+.container {
+  display: grid;
+  height: 90%;
+  width: 50%;
+  border-bottom-left-radius: 2%;
+  border-bottom-right-radius: 2%;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 50px auto auto 100px;
+  background-color: hsl(255, 10%, 10%, 0.2);
+  /* filter: blur(5px); */
+  z-index: -1;
+  gap: 10px;
+}
+
+.container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: rgba(10, 20, 80, 0.2);
+  z-index: 1;
+}
+
+.card-location {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.card-find {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.card-time {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.card-day {
+}
+
+.card-weather-status {
+}
+
+.card-temps-high {
+}
+
+.card-temps-low {
+}
+
+.card-footer {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}

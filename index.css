@@ -9,7 +9,8 @@ body {
     no-repeat center center;
   background-size: cover;
   display: flex;
-  font-family: sans-serif, monospace;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 3px;
   min-height: 100vh;
   justify-content: center;
   color: white;
@@ -21,11 +22,10 @@ body {
   width: 50%;
   border-bottom-left-radius: 2%;
   border-bottom-right-radius: 2%;
-
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto 50px auto auto 100px;
+  grid-template-rows: auto 30px auto auto 100px;
   background-color: hsl(255, 10%, 10%, 0.2);
-  /* filter: blur(5px); */
+  backdrop-filter: blur(5px);
   z-index: -1;
   gap: 10px;
 }
@@ -34,14 +34,40 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background-color: rgba(10, 20, 80, 0.2);
   z-index: 1;
+  list-style-type: none;
 }
 
 .card-location {
   grid-column-start: 1;
   grid-column-end: 5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 90%;
+}
+
+.city {
+  font-size: 2em;
+  animation: fadeIn 3s;
+}
+
+.temperature {
+  font-size: 6em;
+  transform: translateX(0.2em);
+  animation: fadeIn 3s;
+}
+
+.current-status {
+  animation: fadeIn 3s;
+}
+
+.current-high-low {
+  animation: fadeIn 3s;
+}
+
+.date-time {
+  animation: fadeIn 3s;
 }
 
 .card-find {
@@ -52,21 +78,67 @@ body {
 .card-time {
   grid-column-start: 1;
   grid-column-end: 5;
+  border-radius: 10px;
+  background-color: rgba(10, 20, 80, 0.2);
 }
 
 .card-day {
+  border-radius: 10px;
+  background-color: rgba(10, 20, 80, 0.2);
 }
 
 .card-weather-status {
+  border-radius: 10px;
+  background-color: rgba(10, 20, 80, 0.2);
 }
 
 .card-temps-high {
+  border-radius: 10px;
+  background-color: rgba(10, 20, 80, 0.2);
 }
 
 .card-temps-low {
+  border-radius: 10px;
+  background-color: rgba(10, 20, 80, 0.2);
 }
 
 .card-footer {
   grid-column-start: 1;
   grid-column-end: 5;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 80%;
+  animation: fadeIn 3s;
+}
+
+.city-find {
+  background: none;
+  border: none;
+  border-bottom: 1px #ccc solid;
+  margin: 10px;
+  color: rgba(240, 240, 240, 0.7);
+  font: 1em "Open sans";
+  transform: translateY(-50%);
+}
+
+.submit {
+  background: none;
+  border: 1px #ccc solid;
+  padding: 5px;
+  color: rgba(240, 240, 240, 0.7);
+  transform: translateY(-50%);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -2,21 +2,135 @@
   <head>
     <meta charset="utf-8" />
     <title>Today's Weather Now!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css" />
-    <script defer src="script.js"></script>
+    <script defer src="index.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="card-location">
-        <h2>Location</h2>
+        <h1 class="city">Tampa</h1>
+        <h1 class="temperature">78&deg</h1>
+        <h3 class="current-status">Partly Cloudy</h3>
+        <h3 class="current-high-low">H:89&deg  L:74&deg</h3>
+        <p class="date-time">12:04 AM - Saturday July 2</p>
       </div>
-      <div class="card-find">Type your location</div>
+      <div class="card-find"><form><input type="text" class="city-find" value="Please enter a city."></input><button type="submit" class="submit">Search</button></form></div>
       <div class="card-time">Time of Day</div>
-      <div class="card-day">Day</div>
-      <div class="card-weather-status">Status</div>
-      <div class="card-temps-high">Highs</div>
-      <div class="card-temps-low">Lows</div>
-      <div class="card-footer">Footer</div>
+      <div class="card-day">
+        <li>
+          <ul>
+            Days
+          </ul>
+          <ul>
+            Sun
+          </ul>
+          <ul>
+            Mon
+          </ul>
+          <ul>
+            Tue
+          </ul>
+          <ul>
+            Wed
+          </ul>
+          <ul>
+            Thu
+          </ul>
+          <ul>
+            Fri
+          </ul>
+          <ul>
+            Sat
+          </ul>
+        </li>
+      </div>
+      <div class="card-weather-status">
+        <li>
+          <ul>
+            Chance
+          </ul>
+          <ul>
+            <img src="./icons/storm-256.png" width="30px" height="auto" fill="white">
+          </ul>
+          <ul>
+            <img src="./icons/storm-256.png" width="30px" height="auto" fill="white">
+          </ul>
+          <ul>
+            <img src="./icons/storm-256.png" width="30px" height="auto" fill="white">
+          </ul>
+          <ul>
+            <img src="./icons/storm-256.png" width="30px" height="auto" fill="white">
+          </ul>
+          <ul>
+            <img src="./icons/storm-256.png" width="30px" height="auto" fill="white">
+          </ul>
+          <ul>
+            <img src="./icons/rain-256.png" width="30px" height="auto" fill="white">
+          </ul>
+          <ul>
+            <img src="./icons/rain-256.png" width="30px" height="auto" fill="white">
+          </ul>
+        </li>
+      </div>
+      <div class="card-temps-high">
+        <li>
+          <ul>
+            Highs
+          </ul>
+          <ul>
+            93&deg
+          </ul>
+          <ul>
+            90&deg
+          </ul>
+          <ul>
+            92&deg
+          </ul>
+          <ul>
+            92&deg
+          </ul>
+          <ul>
+            92&deg
+          </ul>
+          <ul>
+            93&deg
+          </ul>
+          <ul>
+            92&deg
+          </ul>
+        </li></div>
+      <div class="card-temps-low">
+        <li>
+          <ul>
+            Lows
+          </ul>
+          <ul>
+            72&deg
+          </ul>
+          <ul>
+            73&deg
+          </ul>
+          <ul>
+            74&deg
+          </ul>
+          <ul>
+            74&deg
+          </ul>
+          <ul>
+            75&deg
+          </ul>
+          <ul>
+            75&deg
+          </ul>
+          <ul>
+            75&deg
+          </ul>
+        </li>
+      </div>
+      <div class="card-footer">Designed by Joshua Maciel</div>
     </div>
   </body>
 </html>

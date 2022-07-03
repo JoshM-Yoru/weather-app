@@ -18,15 +18,16 @@ body {
 
 .container {
   display: grid;
-  height: 90%;
+  height: 90vh;
   width: 50%;
   border-bottom-left-radius: 2%;
   border-bottom-right-radius: 2%;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto 30px auto auto 100px;
+  grid-template-rows: auto 100px auto auto 100px;
   background-color: hsl(255, 10%, 10%, 0.2);
   backdrop-filter: blur(5px);
-  z-index: -1;
+  -webkit-backdrop-filter: blur(5px);
+  /* z-index: -1; */
   gap: 10px;
 }
 
@@ -34,13 +35,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  /* z-index: 1; */
   list-style-type: none;
 }
 
 .card-location {
-  grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column: 1 / 5;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -71,15 +71,76 @@ body {
 }
 
 .card-find {
-  grid-column-start: 1;
-  grid-column-end: 5;
+  position: relative;
+  grid-column: 1 / 5;
+}
+
+input:focus {
+  outline: none;
+}
+
+.city-find {
+  background: none;
+  border: none;
+  border-bottom: 1px #ccc solid;
+  margin: 10px;
+  color: rgba(240, 240, 240, 0.7);
+  font: 1em "Open sans";
+  z-index: 1000 !important;
+}
+
+.submit {
+  background: none;
+  border: 1px #ccc solid;
+  padding: 5px;
+  color: rgba(240, 240, 240, 0.7);
 }
 
 .card-time {
-  grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column: 1 / 5;
   border-radius: 10px;
   background-color: rgba(10, 20, 80, 0.2);
+  display: flex;
+  gap: 20px;
+}
+
+.arrow-left {
+  height: 30px;
+  transform: translateX();
+}
+
+.arrow-right {
+  height: 30px;
+}
+
+.time-container {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  gap: 1em;
+  font-size: 0.8em;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.slide {
+  position: relative;
+  width: 30%;
+  border: 1px solid;
+  white-space: nowrap;
+  padding: 5px;
+  height: 70%;
+  animation: fadeIn 3s;
+}
+
+.slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 40%;
+  animation: fadeIn 3s;
 }
 
 .card-day {
@@ -103,8 +164,7 @@ body {
 }
 
 .card-footer {
-  grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column: 1 / 5;
 }
 
 li {
@@ -116,27 +176,10 @@ li {
   animation: fadeIn 3s;
 }
 
-.city-find {
-  background: none;
-  border: none;
-  border-bottom: 1px #ccc solid;
-  margin: 10px;
-  color: rgba(240, 240, 240, 0.7);
-  font: 1em "Open sans";
-  transform: translateY(-50%);
-}
-
-.submit {
-  background: none;
-  border: 1px #ccc solid;
-  padding: 5px;
-  color: rgba(240, 240, 240, 0.7);
-  transform: translateY(-50%);
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;

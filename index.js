@@ -53,3 +53,57 @@ const getCity = async (city) => {
 };
 
 getCity("Tampa");
+
+// const slider = function () {
+//   const slides = document.querySelectorAll(".slide");
+//   const btnLeft = document.querySelector(".arrow-left");
+//   const btnRight = document.querySelector(".arrow-right");
+
+//   let curSlide = 0;
+//   const maxSlide = slides.length;
+
+//   slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
+
+//   const goToSlide = function (slide) {
+//     slides.forEach(
+//       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+//     );
+//   };
+
+//   const nextSlide = function () {
+//     if (curSlide === maxSlide - 1) {
+//       curSlide = maxSlide - 1;
+//     } else {
+//       curSlide++;
+//     }
+
+//     goToSlide(curSlide);
+//     activateDot(curSlide);
+//   };
+//   btnRight.addEventListener("click", nextSlide);
+
+//   const prevSlide = function () {
+//     if (curSlide === 0) {
+//       curSlide = 0;
+//     } else {
+//       curSlide--;
+//     }
+
+//     goToSlide(curSlide);
+//   };
+
+//   const init = function () {
+//     goToSlide(0);
+//   };
+
+//   init();
+
+//   //Event Handlers
+//   btnLeft.addEventListener("click", prevSlide);
+
+//   document.addEventListener("keydown", function (e) {
+//     if (e.key === "ArrowRight") nextSlide();
+//     if (e.key === "ArrowLeft") prevSlide();
+//   });
+// };
+// slider();

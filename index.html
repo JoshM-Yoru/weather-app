@@ -17,12 +17,57 @@
         <h3 class="current-high-low">H:89&deg  L:74&deg</h3>
         <p class="date-time">12:04 AM - Saturday July 2</p>
       </div>
-      <div class="card-find"><form><input type="text" class="city-find" value="Please enter a city."></input><button type="submit" class="submit">Search</button></form></div>
-      <div class="card-time">Time of Day</div>
+      <div class="card-find">
+        <form>
+          <input type="text" class="city-find" onfocus="this.value=''" name="cityToSearch" value="Please enter a city."></input><button type="submit" class="submit">Search</button>
+        </form>
+      </div>
+      <div class="card-time">
+        <img src="./icons/arrow-left-256.png" class="arrow-left" />
+        <div class="time-container">
+          <div class="slide slide--12A">
+            <div>12 AM</div>
+            <div><img src="./icons/storm-256.png" width="30px" height="auto" fill="white"></div>
+            <div>90&deg</div>
+          </div>
+          <div class="slide slide--1A">
+            <div>1 AM</div>
+            <div><img src="./icons/storm-256.png" width="30px" height="auto" fill="white"></div>
+            <div>90&deg</div>
+          </div>
+          <div class="slide slide--2A">
+            <div>2 AM</div>
+            <div><img src="./icons/storm-256.png" width="30px" height="auto" fill="white"></div>
+            <div>90&deg</div>
+          </div>
+          <div class="slide slide--3A">3 AM</div>
+          <div class="slide slide--4A">4 AM</div>
+          <div class="slide slide--5A">5 AM</div>
+          <div class="slide slide--6A">6 AM</div>
+          <div class="slide slide--7A">7 AM</div>
+          <div class="slide slide--8A">8 AM</div>
+          <div class="slide slide--9A">9 AM</div>
+          <div class="slide slide--10A">10 AM</div>
+          <div class="slide slide--11A">11 AM</div>
+          <div class="slide slide--12A">12 PM</div>
+          <div class="slide slide--1P">1 PM</div>
+          <div class="slide slide--2A">2 PM</div>
+          <div class="slide slide--3P">3 PM</div>
+          <div class="slide slide--4P">4 PM</div>
+          <div class="slide slide--5P">5 PM</div>
+          <div class="slide slide--6P">6 PM</div>
+          <div class="slide slide--7P">7 PM</div>
+          <div class="slide slide--8P">8 PM</div>
+          <div class="slide slide--9P">9 PM</div>
+          <div class="slide slide--10P">10 PM</div>
+          <div class="slide slide--11P">11 PM</div>
+        </div>
+      <img src="./icons/arrow-right-256.png" class="arrow-right" />
+      </div>
       <div class="card-day">
         <li>
           <ul>
-            Days
+            <h3>Days</h3>
           </ul>
           <ul>
             Sun
@@ -50,7 +95,7 @@
       <div class="card-weather-status">
         <li>
           <ul>
-            Chance
+            <h3>Forecast</h3>
           </ul>
           <ul>
             <img src="./icons/storm-256.png" width="30px" height="auto" fill="white">
@@ -78,7 +123,7 @@
       <div class="card-temps-high">
         <li>
           <ul>
-            Highs
+            <h3>Highs</h3>
           </ul>
           <ul>
             93&deg
@@ -105,7 +150,7 @@
       <div class="card-temps-low">
         <li>
           <ul>
-            Lows
+            <h3>Lows</h3>
           </ul>
           <ul>
             72&deg

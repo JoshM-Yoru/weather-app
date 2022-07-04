@@ -1,109 +1,77 @@
 "use strict";
 
-// window.addEventListener("load", () => {
-//   let long;
-//   let lat;
-
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition((position) => {
-//       console.log(position);
-//       long = position.coords.longitude;
-//       lat = position.coords.latitude;
-//       console.log(long, lat);
-
-//       const apiForecast = `https://api.weather.gov/points/${lat},${long}`;
-//       console.log(apiForecast);
-//       fetch(apiForecast)
-//         .then((response) => {
-//           return response.json();
-//         })
-//         .then((data) => {
-//           console.log(data.properties.forecast);
-//           console.log(JSON.stringify(data.properties.forecast));
-//         });
-//     });
-//   } else {
-//     h1.textContent =
-//       "This site needs location data. Please enter a location Below.";
-//   }
-// });
-
 const key = "2f8ab8fe8286470480231710220207";
 
-const gettingWeatherDetails = async (id) => {
-  const baseURL = "http://dataservice.accueweather.com/currentconditions/v1/";
-  const query = `${id}?apikey=${key}`;
-
-  const response = await fetch(baseURL + query);
-  const data = await response.json();
-
-  return data[0];
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
 };
 
-const getCity = async (city) => {
-  const baseURL =
-    "http://dataservice.accuweather.com/locations/v1/cities/search";
-  const query = `?apikey=${key}&q=${city}`;
+const whereAmI = async function () {
+  try {
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
 
-  const response = await fetch(baseURL + query);
-  const data = await response.json();
-  console.log(data);
+    //Reverse Geocoding
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    const dataGeo = await resGeo.json();
+    if (!resGeo.ok) throw new Error("Problem getting location data.");
 
-  return data[0];
+    console.log(dataGeo.city);
+
+    return dataGeo.city;
+  } catch (err) {
+    alert(`Something went wrong. ${err.message}`);
+    renderError(`${err.message}`);
+
+    throw err;
+  }
 };
 
-getCity("Tampa");
+whereAmI();
 
-// const slider = function () {
-//   const slides = document.querySelectorAll(".slide");
-//   const btnLeft = document.querySelector(".arrow-left");
-//   const btnRight = document.querySelector(".arrow-right");
+const gettingWeather = async (key, city) => {
+  const currentWeather = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`;
 
-//   let curSlide = 0;
-//   const maxSlide = slides.length;
+  const responseCurrentWeather = await fetch(currentWeather);
+  const dataCurrentWeather = await responseCurrentWeather.json();
 
-//   slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
+  console.log(dataCurrentWeather);
 
-//   const goToSlide = function (slide) {
-//     slides.forEach(
-//       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-//     );
-//   };
+  document.querySelector(".city").innerHTML = dataCurrentWeather.location.name;
 
-//   const nextSlide = function () {
-//     if (curSlide === maxSlide - 1) {
-//       curSlide = maxSlide - 1;
-//     } else {
-//       curSlide++;
-//     }
+  document.querySelector(".temperature").innerHTML =
+    Math.floor(dataCurrentWeather.current.temp_f) + "&deg";
 
-//     goToSlide(curSlide);
-//     activateDot(curSlide);
-//   };
-//   btnRight.addEventListener("click", nextSlide);
+  document.querySelector(".current-status").innerHTML =
+    dataCurrentWeather.current.condition.text;
 
-//   const prevSlide = function () {
-//     if (curSlide === 0) {
-//       curSlide = 0;
-//     } else {
-//       curSlide--;
-//     }
+  document.querySelector(".current-high-low").innerHTML =
+    dataForecastWeather.current;
+};
 
-//     goToSlide(curSlide);
-//   };
+gettingWeather(key, whereAmI());
 
-//   const init = function () {
-//     goToSlide(0);
-//   };
+document.querySelector(".submit").addEventListener("click", function (e) {
+  e.preventDefault();
+  let city = document.querySelector("input").value;
+  console.log(city);
+  document.querySelector("input").value = "Please enter a city.";
 
-//   init();
+  gettingWeather(key, city);
+});
 
-//   //Event Handlers
-//   btnLeft.addEventListener("click", prevSlide);
+// const getCity = async (city) => {
+//   const baseURL =
+//     "http://dataservice.accuweather.com/locations/v1/cities/search";
+//   const query = `?apikey=${key}&q=${city}`;
 
-//   document.addEventListener("keydown", function (e) {
-//     if (e.key === "ArrowRight") nextSlide();
-//     if (e.key === "ArrowLeft") prevSlide();
-//   });
+//   const response = await fetch(baseURL + query);
+//   const data = await response.json();
+//   console.log(data);
+
+//   return data[0];
 // };
-// slider();
+
+// getCity("Tampa");

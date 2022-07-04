@@ -12,6 +12,7 @@ body {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 3px;
   min-height: 100vh;
+  min-width: 60rem;
   justify-content: center;
   color: white;
 }
@@ -19,7 +20,7 @@ body {
 .container {
   display: grid;
   height: 90vh;
-  width: 50%;
+  min-width: 60rem;
   border-bottom-left-radius: 2%;
   border-bottom-right-radius: 2%;
   grid-template-columns: repeat(4, 1fr);
@@ -100,8 +101,6 @@ input:focus {
   grid-column: 1 / 5;
   border-radius: 10px;
   background-color: rgba(10, 20, 80, 0.2);
-  display: flex;
-  gap: 20px;
 }
 
 .arrow-left {
@@ -114,23 +113,31 @@ input:focus {
 }
 
 .time-container {
-  display: flex;
-  width: 80%;
-  height: 100%;
-  gap: 1em;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit(min(150px, 100%), 1fr));
+  grid-auto-columns: 1fr;
+  min-height: 100%;
+  max-width: 80%;
+
   font-size: 0.8em;
-  justify-content: center;
+  overflow-x: scroll;
   align-items: center;
-  overflow-x: hidden;
+  justify-content: space-between;
+  padding: 2em;
+}
+::-webkit-scrollbar {
+  background: none;
 }
 
 .slide {
   position: relative;
   width: 30%;
-  border: 1px solid;
+  /* border: 1px solid; */
   white-space: nowrap;
   padding: 5px;
   height: 70%;
+  min-width: 5em;
   animation: fadeIn 3s;
 }
 
@@ -167,13 +174,14 @@ input:focus {
   grid-column: 1 / 5;
 }
 
-li {
+ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   height: 80%;
   animation: fadeIn 3s;
+  list-style: none;
 }
 
 @keyframes fadeIn {

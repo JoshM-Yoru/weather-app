@@ -16,6 +16,11 @@ body {
   justify-content: center;
   color: white;
   font-size: 1.5rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .container {
@@ -27,7 +32,7 @@ body {
   border-bottom-right-radius: 2%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto 100px auto auto 100px;
-  background-color: hsl(255, 10%, 10%, 0.2);
+  background-color: hsl(255, 10%, 10%, 0.3);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   /* z-index: -1; */
@@ -155,7 +160,7 @@ input:-webkit-autofill:active {
   background: none;
 }
 .time-container:hover::-webkit-scrollbar-thumb {
-  background: rgba(10, 20, 80, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 6rem;
 }
 

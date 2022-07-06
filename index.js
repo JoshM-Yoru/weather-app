@@ -110,7 +110,6 @@ const renderWeather = async (key, city) => {
   const responseForecastWeather = await fetch(forecastWeather);
   const dataForecastWeather = await responseForecastWeather.json();
 
-  console.log(dataForecastWeather);
   //SETS CURRENT INFO
   document.querySelector(".city").innerHTML = dataForecastWeather.location.name;
   document.querySelector(".temperature").innerHTML =
@@ -139,6 +138,9 @@ const renderWeather = async (key, city) => {
   let hour = parsedTime.getHours();
   let time;
 
+  if (min < 10) {
+    min = "0" + min;
+  }
   if (hour > 12) {
     time = hour - 12 + ":" + min + " " + "PM";
   } else {
@@ -148,16 +150,19 @@ const renderWeather = async (key, city) => {
   document.querySelector(".date-time").innerHTML =
     time + " " + "-" + " " + day + " " + month + " " + date + " " + year;
 
+  let timeNow = await document.querySelector(".hour-" + hour);
+
   //SETS HOURLY WEATHER
   getHourlyWeather(dataForecastWeather.forecast.forecastday[0].hour);
 
   document
     .querySelector(".temp-" + hour)
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
 
-  let timeNow = document.querySelector(".hour-" + hour);
+  //CREATES TEMPORARY VARIABLE TO RESET WHATEVER WAS LISTED AS 'NOW'
+  let tempNow = ".hour-" + hour;
+  let temp = timeNow.innerHTML;
 
-  timeNow.style.fontWeight = "bold";
   timeNow.style.color = "white";
   timeNow.innerHTML = "Now";
 
@@ -181,16 +186,19 @@ const renderWeather = async (key, city) => {
         "background-image: url(./backgrounds/" + background + ".jpg)"
       );
   }
+  //GETS INPUT FROM USER TO SEARCH FOR A SPECIFIC LOCATION
+  document.querySelector(".submit").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    //RESETS 'NOW' TO ITS ORIGINAL TIME
+    document.querySelector(tempNow).innerHTML = temp;
+
+    let city = document.querySelector("input").value;
+
+    document.querySelector("input").value = "Please enter a city.";
+
+    renderWeather(key, city);
+  });
 };
 
 renderWeather(key);
-
-//GETS INPUT FROM USER TO SEARCH FOR A SPECIFIC LOCATION
-document.querySelector(".submit").addEventListener("click", function (e) {
-  e.preventDefault();
-  let city = document.querySelector("input").value;
-
-  document.querySelector("input").value = "Please enter a city.";
-
-  renderWeather(key, city);
-});

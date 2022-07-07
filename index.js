@@ -64,6 +64,10 @@ const getHourlyWeather = function (weather) {
       .querySelector(`.img-${i}`)
       .setAttribute("src", weather[i].condition.icon);
 
+    document
+      .querySelector(`.img-${i}`)
+      .setAttribute("alt", weather[i].condition.text);
+
     document.querySelector(`.temp-${i}`).innerHTML =
       Math.floor(weather[i].temp_f) + "&deg";
   }
@@ -163,17 +167,27 @@ const renderWeather = async (key, city) => {
   let tempNow = ".hour-" + hour;
   let temp = timeNow.innerHTML;
 
+  timeNow.style.fontWeight = "bold";
   timeNow.style.color = "white";
   timeNow.innerHTML = "Now";
 
   //SETS MULTIDAY FORECAST
   getForecast(dataForecastWeather.forecast.forecastday);
 
-  document.querySelector(".container").style.opacity = 1;
+  //SHOWS THE WEATHER APP
+  document.querySelector(".loader").style.opacity = 0;
+  document.querySelector(".container").style.animation = "render 3s forwards";
 
   let background = dataForecastWeather.current.condition.text.toLowerCase();
 
-  const backgroundArray = ["cloudy", "night", "rain", "storm", "snow"];
+  const backgroundArray = [
+    "partly",
+    "cloudy",
+    "thunder",
+    "night",
+    "rain",
+    "snow",
+  ];
 
   for (let i = 0; i < backgroundArray.length; i++) {
     if (background.includes(backgroundArray[i])) {

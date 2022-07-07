@@ -5,14 +5,13 @@
 }
 
 body {
-  background: rgb(63, 162, 243);
+  background: rgb(1, 14, 24) no-repeat fixed center;
   background-size: cover;
-  background-position: center;
   display: flex;
   font-family: "Open Sans", sans-serif;
   letter-spacing: 3px;
   min-height: 100vh;
-  min-width: 100%;
+  min-width: 800px;
   justify-content: center;
   color: white;
   font-size: 1.5rem;
@@ -25,7 +24,7 @@ body {
 
 .container {
   display: grid;
-  min-height: 90vh;
+  min-height: 1200px;
   height: 95vh;
   min-width: 60rem;
   border-bottom-left-radius: 2%;
@@ -149,9 +148,8 @@ input:-webkit-autofill:active {
   grid-auto-columns: 1fr;
   min-height: 100%;
   max-width: 80%;
-
-  font-size: 0.8em;
-  overflow-x: scroll;
+  font-size: 1.6rem;
+  overflow-x: auto;
   overflow-y: hidden;
   align-items: center;
   justify-content: space-between;
@@ -188,24 +186,28 @@ input:-webkit-autofill:active {
   border-radius: 0.5rem;
   background-color: rgba(10, 20, 80, 0.2);
   min-height: 12rem;
+  font-size: 1.6rem;
 }
 
 .card-weather-status {
   border-radius: 0.5rem;
   background-color: rgba(10, 20, 80, 0.2);
   min-height: 12rem;
+  font-size: 1.6rem;
 }
 
 .card-temps-high {
   border-radius: 0.5rem;
   background-color: rgba(10, 20, 80, 0.2);
   min-height: 12rem;
+  font-size: 1.6rem;
 }
 
 .card-temps-low {
   border-radius: 0.5rem;
   background-color: rgba(10, 20, 80, 0.2);
   min-height: 12rem;
+  font-size: 1.6rem;
 }
 
 .card-footer {
@@ -223,10 +225,92 @@ ul {
   list-style: none;
 }
 
+.loader {
+  position: absolute;
+  margin-top: 45vh;
+  margin-left: auto;
+  font: montserrat;
+}
+.ring {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* background-color: white; */
+  justify-content: center;
+  align-items: center;
+  animation: ring 2s linear infinite;
+}
+.ring:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.jump {
+  animation: jumpUp 2s infinite;
+  animation-delay: calc(var(--order) * 150ms);
+}
+
+.loading {
+  display: flex;
+  color: #737373;
+  text-transform: uppercase;
+  font-size: 20px;
+  position: absolute;
+}
+.loading-text {
+  position: absolute;
+  display: flex;
+  top: 80;
+  left: 35;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
     transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes jumpUp {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px rgb(250, 130, 32);
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px rgb(250, 130, 32);
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px rgb(250, 130, 32);
+  }
+}
+
+@keyframes render {
+  0% {
+    opacity: 0;
   }
   100% {
     opacity: 1;

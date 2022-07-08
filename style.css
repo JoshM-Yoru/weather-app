@@ -30,7 +30,7 @@ body {
   gap: 10px;
   opacity: 0;
   position: relative;
-  height: 100%;
+  height: 100vh;
   padding: 0;
 }
 
@@ -263,7 +263,7 @@ ul {
     -webkit-backdrop-filter: blur(5px);
     gap: 10px;
     opacity: 0;
-    height: 100%;
+    height: 100vh;
     padding: 5%;
   }
   .card-location {

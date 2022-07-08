@@ -36,6 +36,11 @@ const getPosition = function () {
 //GETS AND SETS HOURLY WEATHER FOR CURRENT DAY
 const getHourlyWeather = function (weather) {
   for (let i = 0; i < weather.length; i++) {
+    if (document.querySelector(`.hour-${i}`).innerHTML === "Now") {
+      document.querySelector(`.hour-${i}`).innerHTML =
+        i > 12 ? i - 12 + "PM" : i + "AM";
+      document.querySelector(`.hour-${i}`).style.fontWeight = "normal";
+    }
     document
       .querySelector(`.img-${i}`)
       .setAttribute("src", weather[i].condition.icon);
@@ -167,10 +172,6 @@ const renderWeather = async (key, city) => {
     .querySelector(".temp-" + hour)
     .scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
 
-  //CREATES TEMPORARY VARIABLE TO RESET WHATEVER WAS LISTED AS 'NOW'
-  let tempNow = ".hour-" + hour;
-  let temp = timeNow.innerHTML;
-
   timeNow.style.fontWeight = "bold";
   timeNow.innerHTML = "Now";
 
@@ -205,25 +206,20 @@ const renderWeather = async (key, city) => {
         "background-image: url(./backgrounds/" + background + ".jpg)"
       );
   }
-
-  //GETS INPUT FROM USER TO SEARCH FOR A SPECIFIC LOCATION
-  document.querySelector(".submit").addEventListener("click", function (e) {
-    e.preventDefault();
-
-    // RESETS 'NOW' TO ITS ORIGINAL TIME
-    document.querySelector(tempNow).innerHTML = temp;
-    document.querySelector(tempNow).style.fontWeight = "normal";
-
-    let city = document.querySelector("input").value;
-    console.log(city);
-
-    if (city === "" || city === "Please enter a city.") {
-      alert("That is not a valid input. Please enter a city.");
-    } else {
-      document.querySelector("input").value = "Please enter a city.";
-      renderWeather(key, city);
-    }
-  });
 };
+
+//GETS INPUT FROM USER TO SEARCH FOR A SPECIFIC LOCATION
+document.querySelector(".submit").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  let city = document.querySelector("input").value;
+
+  if (city === "" || city === "Please enter a city.") {
+    alert("That is not a valid input. Please enter a city.");
+  } else {
+    document.querySelector("input").value = "Please enter a city.";
+    renderWeather(key, city);
+  }
+});
 
 renderWeather(key);

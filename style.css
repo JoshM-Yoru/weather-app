@@ -31,6 +31,7 @@ body {
   opacity: 0;
   position: relative;
   height: 100vh;
+  width: 100vw;
   padding: 0;
 }
 
@@ -111,11 +112,12 @@ input:-webkit-autofill:active {
   color: rgba(240, 240, 240, 0.7);
   border-radius: 5rem;
   font-weight: bold;
+  font-size: 1em;
   padding: 0.5rem;
 }
 
 .submit:hover {
-  background: rgb(10, 92, 131);
+  background: rgba(250, 132, 22, 0.8);
   font-weight: bold;
   border: none;
 }
@@ -124,6 +126,7 @@ input:-webkit-autofill:active {
   grid-column: 1 / 5;
   border-radius: 1rem;
   background-color: rgba(10, 20, 80, 0.2);
+  width: 100%;
 }
 
 .time-container {

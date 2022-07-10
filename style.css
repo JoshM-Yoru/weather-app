@@ -101,7 +101,7 @@ input:-webkit-autofill:active {
   border: none;
   border-bottom: 1px #ccc solid;
   color: rgba(240, 240, 240, 0.7);
-  font: 1.25em "Open sans";
+  font: 1.5em "Open sans";
   z-index: 1000 !important;
   padding: 0;
 }
@@ -112,7 +112,7 @@ input:-webkit-autofill:active {
   color: rgba(240, 240, 240, 0.7);
   border-radius: 5rem;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.5em;
   padding: 0.5rem;
 }
 
@@ -215,6 +215,11 @@ ul {
   padding-right: 0.5em;
 }
 
+img {
+  height: 1.5em;
+  width: auto;
+}
+
 .loader {
   position: absolute;
   margin-left: auto;
@@ -272,7 +277,7 @@ ul {
   .card-location {
     grid-column: 1/2;
     grid-row: 1/5;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
   .card-find {
     grid-column: 2/6;

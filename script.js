@@ -217,9 +217,14 @@ document.querySelector(".submit").addEventListener("click", function (e) {
   if (city === "" || city === "Please enter a city.") {
     alert("That is not a valid input. Please enter a city.");
   } else {
-    document.querySelector("input").value = "Please enter a city.";
+    document.querySelector("input").value = "";
+    document.querySelector("input").placeholder = "Please enter a city.";
     renderWeather(key, city);
   }
 });
 
+// document.querySelector(".use-gps").addEventListener("click", function (e) {
+//   e.preventDefault();
+//   renderWeather(key);
+// });
 renderWeather(key);

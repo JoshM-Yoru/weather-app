@@ -225,7 +225,6 @@ document.querySelector(".submit").addEventListener("click", function (e) {
   } else {
     document.querySelector("input").value = "";
     document.querySelector("input").placeholder = "Please enter a city.";
-    getLocationTime(city);
     renderWeather(key, city);
   }
 });

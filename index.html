@@ -9,16 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js" ></script>
-
   </head>
   <body>
-    <!-- <div class="gps">
-        <form>
-          <input type="text" class="city-find" name="cityToSearch" placeholder="Please enter a city."></input>
-          <button class="btn main-submit">Search</button>
-          <button class="btn use-gps">Use My Location</button>
-        </form>
-    </div> -->
     <div class="loader">
       <div class="ring">
       </div>
@@ -40,6 +32,7 @@
         <form>
           <input type="text" class="city-find" name="cityToSearch" placeholder="Please enter a city."></input>
           <button class="btn submit">Search</button>
+          <button class="btn use-location">Use My Location</button>
         </form>
       </div>
       <div class="card-time">
@@ -233,5 +226,8 @@
       </div>
       <div class="card-footer">Designed by Joshua Maciel</div>
     </div>
+      <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA528bSgvgOH3SUWRVT7EDj1NLxMSNCaiM&libraries=places&callback=activatePlacesSearch">
+      </script>
   </body>
 </html>

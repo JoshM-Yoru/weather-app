@@ -114,7 +114,7 @@ async function getLocationTime(lat, lng) {
   const response = await fetch(locationTime);
   const data = await response.json();
 
-  alert("Test");
+  window.alert("Test");
 
   return data.formatted;
 }

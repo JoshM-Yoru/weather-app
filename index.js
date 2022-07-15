@@ -109,10 +109,12 @@ async function whereAmI() {
 
 //GETS TIME
 async function getLocationTime(lat, lng) {
-  const locationTime = `http://api.timezonedb.com/v2.1/get-time-zone?key=V69MTVCHXA2T&format=json&by=position&lat=${lat}&lng=${lng}`;
+  const locationTime = `https://api.timezonedb.com/v2.1/get-time-zone?key=V69MTVCHXA2T&format=json&by=position&lat=${lat}&lng=${lng}`;
 
   const response = await fetch(locationTime);
   const data = await response.json();
+
+  alert("Test");
 
   return data.formatted;
 }
@@ -123,7 +125,7 @@ const renderWeather = async (key, city) => {
     city = await whereAmI();
   }
 
-  const forecastWeather = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=10&aqi=no&alerts=no`;
+  const forecastWeather = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=10&aqi=no&alerts=no`;
   const responseForecastWeather = await fetch(forecastWeather);
   const dataForecastWeather = await responseForecastWeather.json();
 

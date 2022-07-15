@@ -114,8 +114,6 @@ async function getLocationTime(lat, lng) {
   const response = await fetch(locationTime);
   const data = await response.json();
 
-  window.alert("Test");
-
   return data.formatted;
 }
 
@@ -227,6 +225,7 @@ document.querySelector(".submit").addEventListener("click", function (e) {
   } else {
     document.querySelector("input").value = "";
     document.querySelector("input").placeholder = "Please enter a city.";
+    getLocationTime(city);
     renderWeather(key, city);
   }
 });

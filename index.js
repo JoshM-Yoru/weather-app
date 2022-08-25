@@ -209,7 +209,7 @@ const renderWeather = async (key, city) => {
       .querySelector(`body`)
       .setAttribute(
         "style",
-        "background-image: url(./backgrounds/" + background + ".jpg)"
+        "background-image: url(backgrounds/" + background + ".jpg)"
       );
   }
 };

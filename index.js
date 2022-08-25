@@ -191,7 +191,7 @@ const renderWeather = async (key, city) => {
    document.querySelector(".loading").setAttribute("style","-webkit-filter:opacity(0)");
 
   document.querySelector(".container").style.animation = "render 3s forwards";
-  document.querySelector(".container").setAttribute("style", "-webkit-filter:opacity(0)");
+//   document.querySelector(".container").setAttribute("style", "-webkit-filter:opacity(0)");
 
   let background = dataForecastWeather.current.condition.text.toLowerCase();
 

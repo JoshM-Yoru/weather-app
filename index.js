@@ -187,11 +187,11 @@ const renderWeather = async (key, city) => {
   //SHOWS THE WEATHER APP
   document.querySelector(".loader").style.opacity = 0;
   document.querySelector(".loading").style.opacity = 0;
-//   document.querySelector(".loader").setAttribute("style","-webkit-opacity: 0");
-//    document.querySelector(".loading").setAttribute("style","-webkit-opacity: 0")");
+  document.querySelector(".loader").setAttribute("style","-webkit-opacity: 0");
+  document.querySelector(".loading").setAttribute("style","-webkit-opacity: 0");
 
   document.querySelector(".container").style.animation = "render 3s forwards";
-//   document.querySelector(".container").setAttribute("style", "-webkit-filter:opacity(0)");
+
 
   let background = dataForecastWeather.current.condition.text.toLowerCase();
 

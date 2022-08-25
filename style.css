@@ -29,7 +29,7 @@ body {
   -webkit-backdrop-filter: blur(5px);
   gap: 10px;
   opacity: 0;
-  -webkit-filter:opacity(0);
+  -webkit-opacity: 0;
   position: relative;
   min-height: 100vh;
   min-width: 100vw;
@@ -393,10 +393,10 @@ img {
 @keyframes render {
   0% {
     opacity: 0;
-    -webkit-filter:opacity(0)
+    -webkit-opacity: 0;
   }
   100% {
     opacity: 1;
-    -webkit-filter:opacity(1)
+    -webkit-opacity: 0;
   }
 }

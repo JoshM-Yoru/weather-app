@@ -185,13 +185,13 @@ const renderWeather = async (key, city) => {
   getForecast(dataForecastWeather.forecast.forecastday);
 
   //SHOWS THE WEATHER APP
-  document.querySelector(".loader").style.opacity = 0;
-  document.querySelector(".loading").style.opacity = 0;
-  document.querySelector(".loader").setAttribute("style","-webkit-opacity: 0");
-  document.querySelector(".loading").setAttribute("style","-webkit-opacity: 0");
+  const loader = document.querySelector(".loader");
+  const loading = document.querySelector(".loading");
+  
+	loader.setAttribute('style', 'opacity: 0');
+	loading.setAttribute('style', 'opacity: 0');
 
   document.querySelector(".container").style.animation = "render 3s forwards";
-
 
   let background = dataForecastWeather.current.condition.text.toLowerCase();
 
@@ -208,12 +208,7 @@ const renderWeather = async (key, city) => {
     if (background.includes(backgroundArray[i])) {
       background = backgroundArray[i];
     }
-    document
-      .querySelector(`body`)
-      .setAttribute(
-        "style",
-        "background-image: url(./backgrounds/" + background + ".jpg)"
-      );
+    document.querySelector(`body`).style.backgroundImage = "url(backgrounds/" + background + ".jpg)";
   }
 };
 

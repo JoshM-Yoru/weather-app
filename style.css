@@ -362,39 +362,12 @@ img {
   }
 }
 
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
-  }
-}
-
-@-webkit-keyframes ring {
-  0% {
-    box-shadow: 0px 0px 25px rgb(255, 116, 3);
-  }
-  25% {
-    box-shadow: 0px 0px 50px rgb(255, 116, 3);
-  }
-  50% {
-    box-shadow: 0px 0px 100px rgb(255, 116, 3);
-  }
-  75% {
-    box-shadow: 0px 0px 50px rgb(255, 116, 3);
-  }
-  100% {
-    box-shadow: 0px 0px 25px rgb(255, 116, 3);
   }
 }
 
@@ -413,15 +386,6 @@ img {
   }
   100% {
     box-shadow: 0px 0px 25px rgb(255, 116, 3);
-  }
-}
-
-@-webkit-keyframes render {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
